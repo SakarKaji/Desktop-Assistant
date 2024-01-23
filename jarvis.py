@@ -94,5 +94,18 @@ if __name__ == "__main__":
             query = query.replace("seach on youtube","")
             webbrowser.open(f"www.youtube.com/results?search_query={query}")
 
-        elif 'close browser' in query
-            os.system("taskkill /f /im msedge.exe")
+        elif 'close browser' in query:
+            os.system("taskkill /f /im msedge.exe") #chrome.exe if it opens(or default browser is) chrome
+
+        elif 'close chrome' in query:
+            os.system("taskkill /f /im chrome.exe")
+
+        elif 'what is the time' in query:
+            strTime = datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"Sir,the time is {strTime}")
+        #opening applications
+        elif "open paint" in query:
+            npath = "C:\Windows\system32\\mspaint.exe"
+            os.startfile("npath")
+        elif "close paint" in query:
+            os.system("taskkill /f /im mspaint.exe") 
