@@ -1,6 +1,8 @@
 import pyttsx3
 import speech_recognition as sr
 import datetime
+import wikipedia
+import webbrowser
 
 
 
@@ -49,6 +51,32 @@ if __name__ == "__main__":
     wishMe()
     while True:
         query = takeCommand().lower()
-        if 'hello' in query:
+        if 'hey rajan' in query:
             print("yes sir")
-            speak("yes sir mero naam jarvi")
+            speak("yes sir banus")
+
+        elif 'what is' in query:
+            speak("Searching Wikipediia...")
+            query = query.replace("what is","")
+            results = wikipedia.summary(query, sentences=2)
+            speak("ACcording to Wikipedia")
+            print(results)
+            speak(results)   
+
+        elif 'who is' in query:
+            speak("Searching Wikipediia...")
+            query = query.replace("who is","")
+            results = wikipedia.summary(query, sentences=2)
+            speak("ACcording to Wikipedia")
+            print(results)
+            speak(results)   
+
+        elif 'just open google' in query:
+            webbrowser.open('google.com')   
+
+        elif 'open google' in query:
+            speak("What should i search ?")
+            qry = takeCommand().lower()
+            webbrowser.open(f"{qry}")
+            results = wikipedia.summary(qry, sentences=1)
+            speak(results)   
