@@ -3,6 +3,7 @@ import speech_recognition as sr
 import datetime
 import wikipedia
 import webbrowser
+import pywhatkit as wk #PyWhatKit is a Simple and Powerful WhatsApp Automation Library with many useful Features
 
 
 
@@ -57,7 +58,7 @@ if __name__ == "__main__":
 
         elif 'what is' in query:
             speak("Searching Wikipediia...")
-            query = query.replace("what is","")
+            query = query.replace("what is","" )
             results = wikipedia.summary(query, sentences=2)
             speak("ACcording to Wikipedia")
             print(results)
@@ -80,3 +81,11 @@ if __name__ == "__main__":
             webbrowser.open(f"{qry}")
             results = wikipedia.summary(qry, sentences=1)
             speak(results)   
+
+        elif 'just open youtube' in query:
+            webbrowser.open('youtube.com') 
+        
+        elif 'open youtube' in query:
+            speak("What woould you like to watch?")
+            qrry = takeCommand().lower()
+            wk.playonyt(f"{qrry}")
