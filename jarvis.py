@@ -4,7 +4,7 @@ import datetime
 import wikipedia
 import webbrowser
 import pywhatkit as wk #PyWhatKit is a Simple and Powerful WhatsApp Automation Library with many useful Features
-
+import os
 
 
 engine = pyttsx3.init('sapi5')
@@ -89,3 +89,10 @@ if __name__ == "__main__":
             speak("What woould you like to watch?")
             qrry = takeCommand().lower()
             wk.playonyt(f"{qrry}")
+
+        elif 'search on youtube' in query:
+            query = query.replace("seach on youtube","")
+            webbrowser.open(f"www.youtube.com/results?search_query={query}")
+
+        elif 'close browser' in query
+            os.system("taskkill /f /im msedge.exe")
