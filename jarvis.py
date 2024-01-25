@@ -59,7 +59,7 @@ if __name__ == "__main__":
     wishMe()
     while True:
         query = takeCommand().lower()
-        if 'hey rajan' in query:
+        if 'hey jarvis' in query:
             print("yes sir")
             speak("yes sir banus")
 
@@ -115,11 +115,11 @@ if __name__ == "__main__":
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir,the time is {strTime}")
         #opening applications
-        elif 'open paint' in query:
-            npath = "C:\Windows\system32\\mspaint.exe"
-            os.startfile(npath)
-        elif "close paint" in query:
-            os.system("taskkill /f /im mspaint.exe") 
+        # elif 'open paint' in query:
+        #     npath = "C:\Windows\system32\\mspaint.exe"
+        #     os.startfile(npath)
+        # elif "close paint" in query:
+        #     os.system("taskkill /f /im mspaint.exe") 
 
 
         # some funcions
@@ -217,5 +217,52 @@ if __name__ == "__main__":
             pyautogui.press("volumedown")
             pyautogui.press("volumedown")
 
-        elif "mute" in query:
+        elif "mute" or "unmute" in query:
             pyautogui.press("volumemute")
+
+        
+        elif "refresh" in query:
+            pyautogui.moveTo(1551,551, 2)
+            pyautogui.click(x=1551, y=551, clicks=1, interval=0, button='right')
+            pyautogui.moveTo(1620,667, 1)
+            pyautogui.click(x=1620, y=667, clicks=1, interval=0, button='left')
+
+        elif "scroll down" in query:
+            pyautogui.scroll(1000)
+
+        elif "drag visual studio to the right" in query:
+            pyautogui.moveTo(46, 31, 2)
+            pyautogui.dragRel(1857, 31, 2)
+
+        elif "rectangular spiral" in query:
+            pyautogui.hotkey('win')
+            time.sleep(1)
+            pyautogui.write('paint')
+            time.sleep(1)
+            pyautogui.press('enter')
+            pyautogui.moveTo(100, 193, 1)
+            pyautogui.rightClick
+            pyautogui.click()
+            distance = 300
+            while distance > 0:
+                pyautogui.dragRel(distance, 0, 0.1, button="left")
+                distance = distance - 10
+                pyautogui.dragRel(0, distance, 0.1, button="left")
+                pyautogui.dragRel(-distance, 0, 0.1, button="left")
+                distance = distance - 10
+                pyautogui.dragRel(0, -distance, 0.1, button="left")
+
+        elif "close paint" in query:
+            os.system("taskkill /f /im mspaint.exe")
+
+        elif "who are you" in query:
+            print('My Name Is Six')
+            speak('My Name Is Six')
+            print('I can Do Everything that my creator programmed me to do')
+            speak('I can Do Everything that my creator programmed me to do')
+        
+        elif "who created you" in query:
+            print('I Do not Know His Name, I created with Python Language, in Visual Studio Code.')
+            speak('I Do not Know His Name, I created with Python Language, in Visual Studio Code.')
+
+        
