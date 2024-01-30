@@ -111,7 +111,7 @@ if __name__ == "__main__":
         elif 'close chrome' in query:
             os.system("taskkill /f /im chrome.exe")
 
-        elif 'what is the time' in query:
+        elif 'tell me the time' in query:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir,the time is {strTime}")
         #opening applications
@@ -265,4 +265,3 @@ if __name__ == "__main__":
             print('I Do not Know His Name, I created with Python Language, in Visual Studio Code.')
             speak('I Do not Know His Name, I created with Python Language, in Visual Studio Code.')
 
-        
